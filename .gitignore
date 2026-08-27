@@ -3,13 +3,18 @@
 .env.local
 *.env
 
-# Dependencies
+# Dependencies (covers ALL node_modules anywhere in the repo)
 node_modules/
 backend/node_modules/
+frontend/node_modules/
 
-# Build Outputs
+# Build Outputs (covers ALL dist/build anywhere)
 dist/
 build/
+frontend/dist/
+
+# Vite cache
+frontend/.vite/
 
 # IDE & OS Files
 .DS_Store
