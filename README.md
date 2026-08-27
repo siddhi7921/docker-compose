@@ -71,7 +71,9 @@ Primavera / MS Project / Excel
                │
                ▼
       REAL-TIME PROJECT STATUS
-🏗️ System Architecture
+
+🏗️ System Architecture:-
+
                          ┌──────────────────────────┐
                          │   FIELDLINE FRONTEND     │
                          │  React + TypeScript      │
@@ -124,7 +126,7 @@ Primavera / MS Project / Excel
                                                          ▼
                                                 VERIFIED PROJECT
                                                     PROGRESS
-⚙️ How It Works
+⚙️ How It Works:- 
 1. Upload the Project Schedule
 
 The project manager uploads the planned schedule containing:
@@ -137,7 +139,7 @@ Planned Start Date
 Planned Finish Date
 Planned Quantity
 
-Example:
+Example:-
 
 Activity ID	Activity	Planned Dates
 EXC-C-101	Excavation — Section C	10–14 August
@@ -158,7 +160,7 @@ Example:
 
 "Foundation work completed today. 120 cubic metres concrete poured. Block B reinforcement still pending."
 
-3. Intelligent Data Capture
+3. Intelligent Data Capture:-
 
 The AI processing layer extracts useful project information.
 
@@ -171,7 +173,8 @@ Pending Work: Reinforcement
 
 FieldLine compares the extracted information with the planned project schedule.
 
-Field Report:
+Field Report:-
+
 "Pump P104 installation started."
 
               ↓
@@ -183,8 +186,8 @@ Field Report:
 Activity ID: MECH-204
 Activity: Install Pump P-104
 Confidence: 94%
-5. Human Review
 
+5. Human Review:-
 AI-generated results can be reviewed before updating verified project information.
 
 AI Extraction
@@ -204,6 +207,7 @@ Confidence Score
       │
       ▼
 Verified Project Data
+
 📊 Planned vs Actual Progress
 
 FieldLine compares planned progress with actual site execution.
@@ -217,7 +221,7 @@ Variance: -15%
 
 Status: DELAYED
 
-This helps managers identify:
+This helps managers identify:-
 
 🟢 Completed activities
 🔵 Activities on track
@@ -227,7 +231,7 @@ This helps managers identify:
 
 The frontend provides the main interface for interacting with the FieldLine platform.
 
-Features
+Features:-
 Project Dashboard
 Schedule Upload
 Evidence Upload
@@ -247,7 +251,8 @@ React Router
 SheetJS
 PapaParse
 Lucide Icons
-⚙️ Backend Infrastructure
+
+⚙️ Backend Infrastructure:- 
 
 The backend is designed to support scalable project data processing and real-time updates.
 
@@ -270,52 +275,25 @@ Database Operations
 Caching
 Real-Time Updates
 AI and OCR Processing Integration
-🔄 Complete Data Flow
-SITE ENGINEER / SUPERVISOR
-            │
-            │ Upload Report
-            ▼
-┌────────────────────────────┐
-│     FIELDLINE FRONTEND     │
-└──────────────┬─────────────┘
+
+🏗️ System Architecture:- 
+  
+
+       [Client / Frontend]
                │
+        (HTTP / WebSockets)
                ▼
-┌────────────────────────────┐
-│        NODE.JS API         │
-└──────────────┬─────────────┘
+     [ Nginx Reverse Proxy ]
                │
-               ▼
-┌────────────────────────────┐
-│       MESSAGE QUEUE        │
-└──────────────┬─────────────┘
-               │
-               ▼
-┌────────────────────────────┐
-│       AI / OCR WORKER      │
-│                            │
-│ Extracts:                  │
-│ • Activity                 │
-│ • Location                 │
-│ • Quantity                 │
-│ • Status                   │
-│ • Issues                   │
-└──────────────┬─────────────┘
-               │
-               ▼
-┌────────────────────────────┐
-│      SCHEDULE MATCHING     │
-└──────────────┬─────────────┘
-               │
-               ▼
-┌────────────────────────────┐
-│     HUMAN / AI REVIEW      │
-└──────────────┬─────────────┘
-               │
-               ▼
-     VERIFIED PROJECT DATA
-               │
-               ▼
-       PROJECT DASHBOARD
+       ┌───────┴───────┐
+       ▼               ▼
+ [ Node.js API 1 ] [ Node.js API 2 ]  <── (Horizontal Scaling)
+       │               │
+       ├───────────────┼───────────────┐
+       ▼               ▼               ▼
+ [ PostgreSQL ]   [  Redis  ]   [ Message Queue ]
+  (Relational)    (Feed Cache)   (Background Jobs)
+
 📁 Project Structure
 FieldLine/
 │
@@ -334,6 +312,7 @@ FieldLine/
 ├── .env.example
 ├── .gitignore
 └── README.md
+
 🚀 Getting Started
 Clone the Repository
 git clone https://github.com/siddhi7921/docker-compose.git
@@ -344,6 +323,7 @@ npm install
 npm run dev
 Run the Full Project with Docker
 docker-compose up --build
+
 🎯 Smart India Hackathon
 
 Problem Statement ID: SIH26122
@@ -351,9 +331,7 @@ Problem Statement ID: SIH26122
 Problem Statement Title:
 
 Intelligent Data Capture & Schedule-Linking Layer for Infrastructure Project Management: Real-Time Actual Progress Tracking (Planning-to-Execution Bridge)
-
 Theme: Smart Automation
-
 Category: Software
 
 👥 Team
@@ -363,6 +341,7 @@ Frontend Developer	UI, Dashboard, Upload System, AI Review
 Backend Developer	APIs, Database, Redis, Queue, WebSockets
 AI/ML Developer	OCR, Data Extraction, Activity Matching
 DevOps / Database	Docker, Deployment, Database Infrastructure
+
 🔮 Future Scope
 Voice-based field reporting
 Mobile application for site engineers
@@ -372,6 +351,6 @@ Real-time risk notifications
 Location-based activity tracking
 Predictive delay analysis
 Role-based approval workflow
-🏆 Vision
 
+🏆 Vision:-
 FieldLine transforms scattered field evidence into a structured, traceable, and real-time picture of infrastructure project execution.
