@@ -369,13 +369,6 @@ FieldLine/
 - Docker & Docker Compose
 - Git
 
-### Clone the Repository
-
-```bash
-git clone https://github.com/siddhi7921/docker-compose.git
-cd docker-compose
-```
-
 ### Run the Frontend
 
 ```bash
